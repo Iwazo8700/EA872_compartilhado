@@ -2,20 +2,37 @@
 #include <memory>
 #include <stdlib.h>
 #include <unistd.h>
+#include <vector>
 
 class Massa{
 	private:
 		float m;
 		float pos, vel, ace;
 	public:
+		Massa (float m, float pos, float vel, float ace): m(this->m), pos(this->pos), vel(this->vel), ace(this->ace) {}
 		float get_massa();
-		void set_massa(float massa);
 		float get_pos();
-		void set_pos(float pos);
 		float get_vel();
-		void set_vel(float vel);
 		float get_ace();
-		void set_ace(float ace);	
+		void set_pos(float pos);
+		void set_vel(float vel);
+		void set_ace(float ace);
+};
+
+class Mola {
+	private:
+		float k;
+	public:
+		Mola(float k): k(this->k) {}
+		float get_k();
+};
+
+class Amortecedor {
+	private:
+		float B;
+	public:
+		Amortecedor(float B): B(this->B) {}
+		float get_B();
 };
 
 class PixelConverter {
@@ -23,33 +40,15 @@ class PixelConverter {
 		float scale;
 		float height, width;
 	public:
-		PixelConverter(float scale, float height, float width) : scale{scale}, height{height}, width{width}{}
-		int* convert_to_px(float x, float y);
-};
-
-class Mola {
-	private:
-		float k;
-	public:
-		float get_k();
-		void set_k(float k);
-};
-
-class Amortecedor {
-	private:
-		float B;
-	public:
-		float get_B();
-		void set_B(float B);
+		PixelConverter(float scale, float height, float width) : scale(this->scale), height(this->height), width(this->width){}
+		std::vector<int> convert_to_px(float x, float y);
 };
 
 class View {
 	private:
-		float px = 1;
-		float min = -10;
-		float max = 10;
+
 	public:
-		void render(float x);
+		void render(int x, int y);
 };
 
 class Simulador {
@@ -58,14 +57,15 @@ class Simulador {
 		std::shared_ptr<Mola> k;
 		std::shared_ptr<Amortecedor> b;
 		std::shared_ptr<View> view;
+		std::shared_ptr<PixelConverter> px;
 		const float T = 0.01;
-		float time;
+		float time = 0;
 	public:
 		Simulador(std::shared_ptr<Massa> m,
 			  std::shared_ptr<Mola> k,
 			  std::shared_ptr<Amortecedor> b,
-			  std::shared_ptr<View> view)
-);
+			  std::shared_ptr<View> view,
+			  std::shared_ptr<PixelConverter> px): m(this->m), k(this->k), b(this->b), view(this->view), px(this->px){}
 		void aplicar_lei();
 		void set_massa(std::shared_ptr<Massa> m);
 		void set_view(std::shared_ptr<View> v);
@@ -76,25 +76,12 @@ class Simulador {
 };
 
 int main(){
-	std::shared_ptr<Massa> m (new Massa);
-	std::shared_ptr<Mola> k (new Mola);
-	std::shared_ptr<Amortecedor> b (new Amortecedor);
-	std::unique_ptr<Simulador> sim (new Simulador);
+	std::shared_ptr<Massa> m (new Massa(1, 10, 0, 0));
+	std::shared_ptr<Mola> k (new Mola(1));
+	std::shared_ptr<Amortecedor> b (new Amortecedor(1));
 	std::shared_ptr<View> view (new View);
-
-	m->set_massa(1);
-	m->set_pos(10);
-	m->set_vel(0);
-	m->set_ace(0);
-
-	k->set_k(1);
-	
-	b->set_B(1);
-
-	sim->set_massa(m);
-	sim->set_mola(k);
-	sim->set_amortecedor(b);
-	sim->set_view(view);
+	std::shared_ptr<PixelConverter> px (new PixelConverter(10,400, 200));
+	std::unique_ptr<Simulador> sim (new Simulador(m,k,b,view,px));
 
 	while(sim->get_time() < 10)
 		sim->aplicar_lei();
@@ -102,46 +89,30 @@ int main(){
 	return 0;
 }
 
-Simulador::Simulador(){this->time = 0;}
-float Simulador::get_time(){ return this->time;}
-void Simulador::set_massa(std::shared_ptr<Massa> m){this->m = m;}
-void Simulador::set_view(std::shared_ptr<View> v){this->view = v;}
-void Simulador::set_mola(std::shared_ptr<Mola> k){this->k = k;}
-void Simulador::set_amortecedor(std::shared_ptr<Amortecedor> b){this->b = b;}
+float Simulador::get_time(){return this->time;}
 float Massa::get_massa(){return this->m;}
 float Massa::get_pos(){return this->pos;}
 float Massa::get_vel(){return this->vel;}
 float Massa::get_ace(){return this->ace;}
 float Mola::get_k(){return this->k;}
+void Massa::set_pos(float pos){this->pos=pos;}
+void Massa::set_vel(float vel){this->vel=vel;}
+void Massa::set_ace(float ace){this->ace=ace;}
 float Amortecedor::get_B(){return this->B;}
-void Massa::set_massa(float massa){this->m = massa;}
-void Massa::set_pos(float pos){this->pos = pos;}
-void Massa::set_vel(float vel){this->vel = vel;}
-void Massa::set_ace(float ace){this->ace = ace;}
-void Mola::set_k(float k){this->k = k;}
-void Amortecedor::set_B(float B){this->B = B;}
+std::vector<int> PixelConverter::convert_to_px(float x, float y){
+	std::vector<int> pos((int) ((this->width/2)*(x/this->scale)+this->width/2),(int) ((this->height/2)*(y/this->scale)+this->height/2));
+	return pos;
+}
 void Simulador::aplicar_lei(){
 	this->time += this->T;
 	m->set_ace(-1*((m->get_vel()*b->get_B()) + (m->get_pos()*k->get_k())/m->get_massa()));
 	m->set_vel(m->get_vel() + m->get_ace()*this->T);
 	m->set_pos(m->get_pos() + m->get_vel()*this->T + ((m->get_ace()*this->T*this->T)/2));
 
-	view->render(m->get_pos());
+	std::vector<int> positions = this->px->convert_to_px(0,this->m->get_pos());
+	view->render(positions[0], positions[1]);
 }
-int* convert_to_px(float x, float y){
-	return {(int) ((this->width/2)*(x/this->scale)+this->width/2),(int) ((this->height/2)*(y/this->scale)+this->height/2)};
-}
-
-void View::render(float x){
-//	system("clear");
-
-	for(int i=min; i<max; i+=px){
-		if(i < x && x < i+px)
-			std::cout << "x";
-		else
-			std::cout << " ";
-	}
-	std::cout << std::endl;
-	
+void View::render (int x, int y){
 	
 }
+

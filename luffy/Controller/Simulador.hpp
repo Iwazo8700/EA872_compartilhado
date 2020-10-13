@@ -19,7 +19,7 @@ class Simulador {
 		Simulador(std::shared_ptr<Massa> m,
 			  std::shared_ptr<Mola> k,
 			  std::shared_ptr<Amortecedor> b,
-			  std::shared_ptr<View> view)
+                          std::shared_ptr<View> view): m(this->m), k(this->k), b(this->b), view(this->view), px(this->px){}
 ;
 		void aplicar_lei();
 		void set_massa(std::shared_ptr<Massa> m);

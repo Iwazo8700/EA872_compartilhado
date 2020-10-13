@@ -9,6 +9,7 @@
 
 class Images{
 	public:
+		Images(char* dir, char* dir2);
 		SDL_Texture *texture;
 		SDL_Texture *texture2;
 		SDL_Window* window = nullptr;

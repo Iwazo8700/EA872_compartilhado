@@ -1,7 +1,15 @@
 #include "Simulador.hpp"
 
-
-Simulador::Simulador(){this->time = 0;}
+Simulador::Simulador(std::shared_ptr<Massa> m,
+		     std::shared_ptr<Mola> k,
+	      	     std::shared_ptr<Amortecedor> b,
+                     std::shared_ptr<View> view,
+		     std::shared_ptr<PixelConverter> px):
+					 m(this->m),
+  					 k(this->k),
+					 b(this->b),
+					 view(this->view),
+					 px(this->px){this->time = 0;}
 float Simulador::get_time(){ return this->time;}
 void Simulador::set_massa(std::shared_ptr<Massa> m){this->m = m;}
 void Simulador::set_view(std::shared_ptr<View> v){this->view = v;}

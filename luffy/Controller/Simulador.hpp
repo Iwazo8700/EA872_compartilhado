@@ -2,10 +2,12 @@
 #include <iostream>
 #include <memory>
 #include <stdlib.h>
-#include "Massa.hpp"
-#include "Mola.hpp"
-#include "Amortecedor.hpp"
-
+#include "../Model/Massa.hpp"
+#include "../Model/Mola.hpp"
+#include "../Model/Amortecedor.hpp"
+#include "../View/View.hpp"
+#include "../Controller/PixelConverter.hpp"
+#include "../Controller/ImageControl.hpp"
 
 class Simulador {
 	private:
@@ -13,6 +15,8 @@ class Simulador {
 		std::shared_ptr<Mola> k;
 		std::shared_ptr<Amortecedor> b;
 		std::shared_ptr<View> view;
+		std::shared_ptr<PixelConverter> px;
+		std::shared_ptr<ImageControl> imgControl;
 		const float T = 0.01;
 		float time;
 	public:
@@ -21,7 +25,7 @@ class Simulador {
 			  std::shared_ptr<Amortecedor> b,
                           std::shared_ptr<View> view,
 			  std::shared_ptr<PixelConverter> px,
-			  std::shared_ptr<ImageControler> imgControl);
+			  std::shared_ptr<ImageControl> imgControl);
 ;
 		void aplicar_lei();
 		void set_massa(std::shared_ptr<Massa> m);

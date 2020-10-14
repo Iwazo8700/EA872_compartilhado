@@ -19,6 +19,6 @@ class Massa{
 		float get_ace();
 		void set_ace(float ace);
 		float get_force();
-		float set_force(float force);	
+		void set_force(float force);	
 };
 

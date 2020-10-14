@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
-#include "Images.hpp"
+#include "../Model/Images.hpp"
 
 class View {
 	private:

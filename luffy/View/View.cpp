@@ -1,52 +1,48 @@
 #include "View.hpp"
 
 
-View::View(std::shared_ptr<Images> img, int width, int height)
-	this.img = img;  
+View::View(std::shared_ptr<Images> img, int width, int height){
+	this->img = img;  
 	SCREEN_WIDTH = width;
 	SCREEN_HEIGHT = height;
-// Inicializando o subsistema de video do SDL
-  if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
-    std::cout << SDL_GetError();
-    return 1;
-  }
 
-  // Criando uma janela
-  img->window = SDL_CreateWindow("Demonstracao do SDL2",
-      SDL_WINDOWPOS_UNDEFINED,
-      SDL_WINDOWPOS_UNDEFINED,
-      SCREEN_WIDTH,
-      SCREEN_HEIGHT,
-      SDL_WINDOW_SHOWN);
-  if (window==nullptr) { // Em caso de erro...
-    std::cout << SDL_GetError();
-    SDL_Quit();
-    return 1;
-  }
+	// Inicializando o subsistema de video do SDL
+	if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
+		std::cout << SDL_GetError();
+	}
 
-  // Inicializando o renderizador
-	img->renderer = SDL_CreateRenderer(
-      window, -1,
-      SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-  if (renderer==nullptr) { // Em caso de erro...
-    SDL_DestroyWindow(window);
-    std::cout << SDL_GetError();
-    SDL_Quit();
-    return 1;
-  }
+	// Criando uma janela
+	this->img->window = SDL_CreateWindow("Demonstracao do SDL2",
+	SDL_WINDOWPOS_UNDEFINED,
+	SDL_WINDOWPOS_UNDEFINED,
+	SCREEN_WIDTH,
+	SCREEN_HEIGHT,
+	SDL_WINDOW_SHOWN);
 
-  // Carregando texturas
+	if (this->img->window==nullptr) { // Em caso de erro...
+		std::cout << SDL_GetError();
+		SDL_Quit();
+	}
 
-  // Quadrado onde a textura sera desenhada
-  SDL_QueryTexture(texture, nullptr, nullptr, &target.w, &target.h);
+ 	// Inicializando o renderizador
+	this->img->renderer = SDL_CreateRenderer(
+				this->img->window, -1,
+				SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	if (this->img->renderer==nullptr) { // Em caso de erro...
+		SDL_DestroyWindow(this->img->window);
+		std::cout << SDL_GetError();
+		SDL_Quit();
+	}
+
+  	// Quadrado onde a textura sera desenhada
+	SDL_QueryTexture(this->img->texture, nullptr, nullptr, (&this->img->target.w), &(this->img->target.h));
 }
 
 void View::render(){
-    // Desenhar a cena
-    SDL_RenderClear(img->renderer);
-    SDL_RenderCopy(img->renderer, img->texture2, nullptr, nullptr);
-    SDL_RenderCopy(img->renderer, img->texture, nullptr, &target);
-    SDL_RenderPresent(img->renderer);
-	
+	// Desenhar a cena
+	SDL_RenderClear(this->img->renderer);
+	SDL_RenderCopy(this->img->renderer, this->img->texture2, nullptr, nullptr);
+	SDL_RenderCopy(this->img->renderer, this->img->texture, nullptr, &(this->img->target));
+	SDL_RenderPresent(this->img->renderer);
 }
 

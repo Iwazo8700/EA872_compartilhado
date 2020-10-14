@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfunc5.a CMakeFiles/func5.dir/src/Controller/Simulador.cpp.o
+/usr/bin/ranlib libfunc5.a

@@ -1,0 +1,12 @@
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/rebuild_cache.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func9.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func7.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func1.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func8.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func6.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func2.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func5.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/Luffy.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/edit_cache.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func3.dir
+/home/joao/Documents/EAXXX/EA872/EA872_compartilhado/luffy/CMakeFiles/func4.dir

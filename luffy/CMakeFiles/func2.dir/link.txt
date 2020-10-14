@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfunc2.a CMakeFiles/func2.dir/src/Model/Mola.cpp.o
+/usr/bin/ranlib libfunc2.a

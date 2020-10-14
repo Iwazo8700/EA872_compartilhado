@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfunc6.a CMakeFiles/func6.dir/src/Controller/PixelConverter.cpp.o
+/usr/bin/ranlib libfunc6.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfunc8.a CMakeFiles/func8.dir/src/Controller/ImageControl.cpp.o
+/usr/bin/ranlib libfunc8.a

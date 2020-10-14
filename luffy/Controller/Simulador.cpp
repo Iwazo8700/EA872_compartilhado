@@ -21,6 +21,6 @@ void Simulador::aplicar_lei(){
 	m->set_ace(-1*((m->get_vel()*b->get_B()) + (m->get_pos()*k->get_k())/m->get_massa()));
 	m->set_vel(m->get_vel() + m->get_ace()*this->T);
 	m->set_pos(m->get_pos() + m->get_vel()*this->T + ((m->get_ace()*this->T*this->T)/2));
-
-
+	imgcontrol->change_position(px->convert_to_px(200,m->get_pos())[0], px->convert_to_px(200, m->get_pos()[1]));	
+	view->render();
 }

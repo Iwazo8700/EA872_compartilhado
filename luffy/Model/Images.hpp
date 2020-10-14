@@ -10,6 +10,7 @@
 class Images{
 	public:
 		Images(char const *dir, char const *dir2);
+		~Images();
 		SDL_Texture *texture;
 		SDL_Texture *texture2;
 		SDL_Window* window = nullptr;

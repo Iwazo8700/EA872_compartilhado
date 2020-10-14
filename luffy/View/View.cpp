@@ -3,8 +3,8 @@
 
 View::View(std::shared_ptr<Images> img, int width, int height){
 	this->img = img;  
-	SCREEN_WIDTH = width;
-	SCREEN_HEIGHT = height;
+	this->SCREEN_WIDTH = width;
+	this->SCREEN_HEIGHT = height;
 
 	// Inicializando o subsistema de video do SDL
 	if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
@@ -12,7 +12,7 @@ View::View(std::shared_ptr<Images> img, int width, int height){
 	}
 
 	// Criando uma janela
-	this->img->window = SDL_CreateWindow("Demonstracao do SDL2",
+	this->img->window = SDL_CreateWindow("Simulacao Massa-Mola-Amortecedor",
 	SDL_WINDOWPOS_UNDEFINED,
 	SDL_WINDOWPOS_UNDEFINED,
 	SCREEN_WIDTH,
@@ -28,6 +28,7 @@ View::View(std::shared_ptr<Images> img, int width, int height){
 	this->img->renderer = SDL_CreateRenderer(
 				this->img->window, -1,
 				SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
 	if (this->img->renderer==nullptr) { // Em caso de erro...
 		SDL_DestroyWindow(this->img->window);
 		std::cout << SDL_GetError();

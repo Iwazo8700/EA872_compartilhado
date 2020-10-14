@@ -9,7 +9,7 @@ class Massa{
 		float m;
 		float pos, vel, ace, force;
 	public:
-		Massa (float m, float pos, float vel, float ace): m(this->m), pos(this->pos), vel(this->vel), ace(this->ace) {}
+		Massa (float m, float pos, float vel, float ace);
 		float get_massa();
 		void set_massa(float massa);
 		float get_pos();

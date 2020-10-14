@@ -1,7 +1,34 @@
 #include "Images.hpp"
 
 
-Images::Images(char const *dir, char const *dir2){
+Images::Images(char const *dir, char const *dir2, int SCREEN_WIDTH, int SCREEN_HEIGHT){
+	if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
+		std::cout << SDL_GetError();
+	}
+
+	this->window = SDL_CreateWindow("Simulacao Massa-Mola-Amortecedor",
+	SDL_WINDOWPOS_UNDEFINED,
+	SDL_WINDOWPOS_UNDEFINED,
+	SCREEN_WIDTH,
+	SCREEN_HEIGHT,
+	SDL_WINDOW_SHOWN);
+
+	if (this->window==nullptr) { // Em caso de erro...
+		std::cout << SDL_GetError();
+		SDL_Quit();
+	}
+
+ 	// Inicializando o renderizador
+	this->renderer = SDL_CreateRenderer(
+				this->window, -1,
+				SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+	if (this->renderer==nullptr) { // Em caso de erro...
+		SDL_DestroyWindow(this->window);
+		std::cout << SDL_GetError();
+		SDL_Quit();
+	}
+
 	this->texture = IMG_LoadTexture(this->renderer, dir);
 	this->texture2 = IMG_LoadTexture(this->renderer, dir2);
 	this->target.x = 0;

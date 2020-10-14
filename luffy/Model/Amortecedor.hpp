@@ -8,7 +8,7 @@ class Amortecedor {
 	private:
 		float B;
 	public:
-		Amortecedor(float B): B(this->B) {}
+		Amortecedor(float B);
 		float get_B();
 		void set_B(float B);
 };

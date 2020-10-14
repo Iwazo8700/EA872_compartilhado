@@ -1,6 +1,11 @@
 #include "Massa.hpp"
 
-
+Massa::Massa(float m, float pos, float vel, float ace){
+	this->m = m;
+	this->pos = pos;
+	this->vel = vel;
+	this->ace = ace;
+}
 float Massa::get_massa(){return this->m;}
 float Massa::get_pos(){return this->pos;}
 float Massa::get_vel(){return this->vel;}

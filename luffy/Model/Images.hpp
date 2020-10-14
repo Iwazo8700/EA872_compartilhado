@@ -9,7 +9,7 @@
 
 class Images{
 	public:
-		Images(char const *dir, char const *dir2);
+		Images(char const *dir, char const *dir2, int SCREEN_WIDTH, int SCREEN_HEIGHT);
 		~Images();
 		SDL_Texture *texture;
 		SDL_Texture *texture2;

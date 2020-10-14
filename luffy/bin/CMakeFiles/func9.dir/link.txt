@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfunc9.a  CMakeFiles/func9.dir/src/View/View.cpp.o
+/usr/bin/ranlib libfunc9.a

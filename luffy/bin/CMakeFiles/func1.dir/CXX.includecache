@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/Massa.hpp
+memory
+-
+stdlib.h
+-
+
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Model/Massa.cpp
+Massa.hpp
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Model/Massa.hpp
+

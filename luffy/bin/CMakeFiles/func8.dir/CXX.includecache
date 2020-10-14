@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/ImageControl.hpp
+memory
+-
+Images.hpp
+../includes/Images.hpp
+
+../includes/Images.hpp
+memory
+-
+stdlib.h
+-
+unistd.h
+-
+SDL2/SDL_image.h
+-
+iostream
+-
+
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Controller/ImageControl.cpp
+ImageControl.hpp
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Controller/ImageControl.hpp
+

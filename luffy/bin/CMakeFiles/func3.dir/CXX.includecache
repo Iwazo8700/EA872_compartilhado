@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/Amortecedor.hpp
+memory
+-
+stdlib.h
+-
+
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Model/Amortecedor.cpp
+Amortecedor.hpp
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Model/Amortecedor.hpp
+

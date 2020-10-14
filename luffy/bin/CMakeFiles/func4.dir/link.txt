@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfunc4.a  CMakeFiles/func4.dir/src/Model/Images.cpp.o
+/usr/bin/ranlib libfunc4.a

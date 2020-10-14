@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/Luffy.dir/src/main.cpp.o  -o Luffy  libfunc1.a libfunc2.a libfunc3.a libfunc4.a libfunc5.a libfunc6.a libfunc7.a libfunc8.a libfunc9.a -lSDL2 -lSDL2_image 

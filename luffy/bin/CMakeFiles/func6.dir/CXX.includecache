@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/PixelConverter.hpp
+iostream
+-
+memory
+-
+stdlib.h
+-
+vector
+-
+
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Controller/PixelConverter.cpp
+PixelConverter.hpp
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Controller/PixelConverter.hpp
+

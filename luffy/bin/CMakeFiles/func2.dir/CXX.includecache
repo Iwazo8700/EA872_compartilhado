@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/Mola.hpp
+memory
+-
+stdlib.h
+-
+
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Model/Mola.cpp
+Mola.hpp
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Model/Mola.hpp
+

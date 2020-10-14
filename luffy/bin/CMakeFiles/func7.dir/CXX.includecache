@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/Keyboard.hpp
+Massa.hpp
+../includes/Massa.hpp
+memory
+-
+SDL2/SDL_image.h
+-
+
+../includes/Massa.hpp
+memory
+-
+stdlib.h
+-
+
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Controller/Keyboard.cpp
+Keyboard.hpp
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/src/Controller/Keyboard.hpp
+

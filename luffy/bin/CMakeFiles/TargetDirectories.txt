@@ -1,0 +1,12 @@
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/rebuild_cache.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func9.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func8.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func5.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func4.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/edit_cache.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func3.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func6.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func2.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func1.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/func7.dir
+/home/baralho/Documentos/Github/EA872_compartilhado/luffy/bin/CMakeFiles/Luffy.dir

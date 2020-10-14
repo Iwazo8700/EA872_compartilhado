@@ -31,6 +31,9 @@ void Simulador::aplicar_lei(){
 	m->set_vel(m->get_vel() + m->get_ace()*this->T);
 	m->set_pos(m->get_pos() + m->get_vel()*this->T + ((m->get_ace()*this->T*this->T)/2));
 
-	this->imgControl->change_position(px->convert_to_px(200,m->get_pos())[0], px->convert_to_px(200, m->get_pos())[1]);
+	std::vector<int> pos = px->convert_to_px(0,m->get_pos());
+
+	this->imgControl->change_position(pos[0], pos[1]);
+
 	view->render();
 }

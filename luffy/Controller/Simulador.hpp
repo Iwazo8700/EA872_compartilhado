@@ -2,6 +2,7 @@
 #include <iostream>
 #include <memory>
 #include <stdlib.h>
+#include <vector>
 #include "../Model/Massa.hpp"
 #include "../Model/Mola.hpp"
 #include "../Model/Amortecedor.hpp"

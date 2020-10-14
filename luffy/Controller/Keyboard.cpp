@@ -8,8 +8,8 @@ Keyboard::Keyboard(std::shared_ptr<Massa> m){
 void Keyboard::update_keyboard(){
 
 	SDL_PumpEvents(); // atualiza estado do teclado
-	if (this->state[SDL_SCANCODE_UP]) this->m->set_force(this->m->get_force()+1);
-	else if (this->state[SDL_SCANCODE_DOWN]) this->m->set_force(this->m->get_force()-1);
+	if (this->state[SDL_SCANCODE_UP]) this->m->set_force(this->m->get_force()-1);
+	else if (this->state[SDL_SCANCODE_DOWN]) this->m->set_force(this->m->get_force()+1);
 	else this->m->set_force(0);
 }
 

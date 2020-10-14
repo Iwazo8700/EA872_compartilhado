@@ -1,5 +1,4 @@
 #include "View.hpp"
-#include <iostream>
 
 View::View(std::shared_ptr<Images> img, int width, int height){
 	this->img = img;  

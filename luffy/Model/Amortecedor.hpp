@@ -1,8 +1,6 @@
 #pragma once
-#include <iostream>
 #include <memory>
 #include <stdlib.h>
-
 
 class Amortecedor {
 	private:

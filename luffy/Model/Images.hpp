@@ -15,6 +15,10 @@ class Images{
 		SDL_Window* window = nullptr;
 		SDL_Renderer* renderer;
 		SDL_Rect target;
+		SDL_Rect fonte;
+		SDL_Rect fonte2;
+		SDL_Rect destino;
+		SDL_Rect destino2;
 		void set_fundo(char const *dir);
 		void set_prot(char const *dir);
 };

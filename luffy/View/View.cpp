@@ -18,7 +18,7 @@ View::View(std::shared_ptr<Images> img, int width, int height){
 void View::render(){
 	// Desenhar a cena
 	SDL_RenderClear(this->img->renderer);
-	SDL_RenderCopy(this->img->renderer, this->img->texture2, nullptr, nullptr);
+	SDL_RenderCopy(this->img->renderer, this->img->texture2, nullptr, &(this->img->destino));
 	SDL_RenderCopy(this->img->renderer, this->img->texture, nullptr, &(this->img->target));
 	SDL_RenderPresent(this->img->renderer);
 }

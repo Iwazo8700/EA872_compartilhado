@@ -33,6 +33,9 @@ Images::Images(char const *dir, char const *dir2, int SCREEN_WIDTH, int SCREEN_H
 	this->texture2 = IMG_LoadTexture(this->renderer, dir2);
 	this->target.x = 0;
 	this->target.y = 0;
+	this->target.w = 100;
+	this->target.h = 100;
+	this->destino = {0, 0, 800, 400};
 }
 
 Images::~Images(){

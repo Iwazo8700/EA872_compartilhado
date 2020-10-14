@@ -20,13 +20,15 @@ class Simulador {
 		std::shared_ptr<ImageControl> imgControl;
 		const float T = 0.01;
 		float time;
+		bool luffy;
 	public:
 		Simulador(std::shared_ptr<Massa> m,
 			  std::shared_ptr<Mola> k,
 			  std::shared_ptr<Amortecedor> b,
                           std::shared_ptr<View> view,
 			  std::shared_ptr<PixelConverter> px,
-			  std::shared_ptr<ImageControl> imgControl);
+			  std::shared_ptr<ImageControl> imgControl,
+			  bool luffy);
 ;
 		void aplicar_lei();
 		void set_massa(std::shared_ptr<Massa> m);

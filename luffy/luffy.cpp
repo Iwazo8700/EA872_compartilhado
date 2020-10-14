@@ -24,7 +24,7 @@ int main(){
 	std::shared_ptr<View> view (new View(images, SCREEN_WIDTH, SCREEN_HEIGHT));
 	std::shared_ptr<PixelConverter> pixel (new PixelConverter(10, SCREEN_HEIGHT, SCREEN_WIDTH));
 	std::shared_ptr<ImageControl> imgControl (new ImageControl(images));
-	std::unique_ptr<Simulador> sim (new Simulador(m, k, b, view, pixel, imgControl, true));
+	std::unique_ptr<Simulador> sim (new Simulador(m, k, b, view, pixel, imgControl));
 	std::unique_ptr<Keyboard> key (new Keyboard(m));
 
 	while(true){
@@ -36,4 +36,5 @@ int main(){
 
 	return 0;
 }
+
 

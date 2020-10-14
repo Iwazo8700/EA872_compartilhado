@@ -1,8 +1,11 @@
 #include "View.hpp"
 
 
-View::View()
-  // Inicializando o subsistema de video do SDL
+View::View(std::shared_ptr<Images> img, int width, int height)
+	this.img = img;  
+	SCREEN_WIDTH = width;
+	SCREEN_HEIGHT = height;
+// Inicializando o subsistema de video do SDL
   if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
     std::cout << SDL_GetError();
     return 1;
@@ -33,23 +36,17 @@ View::View()
   }
 
   // Carregando texturas
-  // personagem
-  img->texture = IMG_LoadTexture(renderer, "./capi.png");
-  // fundo
-  img->texture2 = IMG_LoadTexture(renderer, "./park.jpeg");
 
   // Quadrado onde a textura sera desenhada
-  img->target.x = 0;
-  img->target.y = 0;
   SDL_QueryTexture(texture, nullptr, nullptr, &target.w, &target.h);
 }
 
-void View::render(float x){
+void View::render(){
     // Desenhar a cena
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, texture2, nullptr, nullptr);
-    SDL_RenderCopy(renderer, texture, nullptr, &target);
-    SDL_RenderPresent(renderer);
+    SDL_RenderClear(img->renderer);
+    SDL_RenderCopy(img->renderer, img->texture2, nullptr, nullptr);
+    SDL_RenderCopy(img->renderer, img->texture, nullptr, &target);
+    SDL_RenderPresent(img->renderer);
 	
 }
 

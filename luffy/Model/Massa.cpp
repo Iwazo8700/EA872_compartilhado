@@ -1,5 +1,6 @@
 #include "Massa.hpp"
 
+
 float Massa::get_massa(){return this->m;}
 float Massa::get_pos(){return this->pos;}
 float Massa::get_vel(){return this->vel;}

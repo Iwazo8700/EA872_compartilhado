@@ -20,7 +20,8 @@ class Simulador {
 			  std::shared_ptr<Mola> k,
 			  std::shared_ptr<Amortecedor> b,
                           std::shared_ptr<View> view,
-			  std::shared_ptr<PixelConverter> px);
+			  std::shared_ptr<PixelConverter> px,
+			  std::shared_ptr<ImageControler> imgControl);
 ;
 		void aplicar_lei();
 		void set_massa(std::shared_ptr<Massa> m);

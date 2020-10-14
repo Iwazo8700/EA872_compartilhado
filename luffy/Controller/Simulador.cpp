@@ -4,7 +4,8 @@ Simulador::Simulador(std::shared_ptr<Massa> m,
 		     std::shared_ptr<Mola> k,
 	      	     std::shared_ptr<Amortecedor> b,
                      std::shared_ptr<View> view,
-		     std::shared_ptr<PixelConverter> px):
+		     std::shared_ptr<PixelConverter> px,
+			 std::shared_ptr<ImageControler> imgControl):
 					 m(this->m),
   					 k(this->k),
 					 b(this->b),
@@ -21,3 +22,5 @@ void Simulador::aplicar_lei(){
 	m->set_vel(m->get_vel() + m->get_ace()*this->T);
 	m->set_pos(m->get_pos() + m->get_vel()*this->T + ((m->get_ace()*this->T*this->T)/2));
 
+
+}

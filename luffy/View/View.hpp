@@ -5,12 +5,14 @@
 #include <unistd.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include "Images.hpp"
 
 class View {
 	private:
 		std::shared_ptr<Images> img; 
+		int SCREEN_WIDTH, SCREEN_HEIGHT;
 	public:
-		View();
-		void render(int x, int y);
+		View(std::shared_ptr<Images> img, int width, int height);
+		void render();
 };
 
